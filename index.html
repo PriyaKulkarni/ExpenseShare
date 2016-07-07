@@ -2,24 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap stylesheet -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <title>ExpenseShare</title>
     <style>
-        body {font-family: Georgia; font-style: italic; background-color: #ccffff }
-        .align {text-align: center}
+        body { font-family: Lora; background-color: #f2f2f2; font-size: 175%; }
+        .jumbotron { background-image: url(image1.jpg); color: #fff; padding: inherit ; font-style: italic; font-weight: bolder; }
+        .summary_style { font-weight: bold; font-size: 110%; }
+        
     </style>
+    <!-- load bootstrap.min.js file-->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="CalculateShare.js"></script>
 </head>
 
 <body onload="addPeople()">
-    <div class="align">
+    <div class="jumbotron container-fluid text-center">
         <h2>Share an Expense</h2>
-        <hr/>
-        <form onsubmit="return split();">
-            <p>Split Rs. &nbsp;
-                <input type="number" id="amount" min="1" maxlenght="6" placeholder="Total expense" autofocus required oninvalid="this.setCustomValidity('Please enter the amount to be shared!')" oninput="this.setCustomValidity('')" onkeyup="removeDiv()" />
+    </div>
+    <div class="container text-center">
+        <form class="form-inline" role="form" onsubmit="return split();">
+            <p>Share Rs. &nbsp;
+                <input class="form-control" type="number" id="amount" min="1" maxlenght="6" placeholder="Total expense" autofocus required oninvalid="this.setCustomValidity('Please enter the amount to be shared!')" oninput="this.setCustomValidity('')" onkeyup="removeDiv()"/>
             </p>
+            &nbsp;
             <p>Among&nbsp;
-                <select id="people" onchange="addPeople()"> 
+                <select class="form-control" id="people" onchange="addPeople()"> 
                     <option value="2" selected="selected">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -42,12 +51,13 @@
                 </select>
                 &nbsp;people
             </p>
+            &nbsp;
             <div id="container"></div>
             <br/>
-            <input type="submit" value= "Calculate Share!" />
+            <input type="submit" class="btn btn-primary btn-lg" value= "Calculate Share!" />
         </form>
         <br/>
-        <div id="summary"></div>
+        <div class="summary_style" id="summary"></div>
     </div>        
 </body>
 

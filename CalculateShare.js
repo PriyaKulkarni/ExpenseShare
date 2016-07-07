@@ -80,8 +80,8 @@ function split() {
 
                 if(diff <= 0) {
                     if((parseFloat(sorted_arr[i].value)) === 0) {
-                        while(i > 0){
-                            summary.appendChild(document.createTextNode("Expense settled between "+sorted_arr[0].key+" & "+sorted_arr[i].key));
+                        while (i > 0){
+                            summary.appendChild(document.createTextNode("Expense settled for "+sorted_arr[i].key));
                             i--;
                             summary.appendChild(document.createElement("br"));
                         }
@@ -137,6 +137,7 @@ function addPeople() {
         container.appendChild(document.createTextNode("Person" +i+ " paid Rs. "));
         // Create an <input> element, set its attributes
         var input = document.createElement("INPUT");
+        input.className = "form-control";
         input.id = "paid" + i;
         input.type = "number";
         input.name = "paid" + i;
@@ -153,6 +154,7 @@ function addPeople() {
         container.appendChild(document.createTextNode(" & brought "));
         // Create an <input> element, set its attributes
         var input1 = document.createElement("INPUT");
+        input1.className = "form-control";
         input1.id = "friend" + i;
         input1.type = "number";
         input1.name = "friend" + i;
@@ -163,7 +165,8 @@ function addPeople() {
         container.appendChild(input1);
         // Append a node with a random text
         container.appendChild(document.createTextNode(" friends along."));
-        // Append a line-break 
+        // Append line-breaks 
+        container.appendChild(document.createElement("br"));
         container.appendChild(document.createElement("br"));
     }
 }
